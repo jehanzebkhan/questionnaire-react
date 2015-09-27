@@ -1,3 +1,4 @@
+# @cjsx React.DOM
 @AnswerForm = React.createClass
   getInitialState: ->
     label: ''
@@ -14,20 +15,18 @@
       @setState @getInitialState()
     , 'JSON'
   render: ->
-    React.DOM.form
-      className: 'form'
-      onSubmit: @handleSubmit
-      React.DOM.div
-        className: 'form-group'
-        React.DOM.input
-          type: 'text'
-          className: 'form-control'
-          placeholder: 'Label'
-          name: 'label'
-          value: @state.label
-          onChange: @handleChange
-      React.DOM.button
-        type: 'submit'
-        className: 'btn btn-primary'
-        disabled: !@valid()
-        'Create Answer'
+    <form className='form' onSubmit=@handleSubmit>
+      <div className='form-group'>
+        <input
+          type='text'
+          className='form-control'
+          placeholder='Label'
+          name='label'
+          value={@state.label}
+          onChange={@handleChange} />
+        <button
+          type='submit'
+          className='btn btn-primary'
+          disabled={!@valid()}>Create Answer</button>
+      </div>
+    </form>

@@ -1,3 +1,4 @@
+# @cjsx React.DOM
 @Answer = React.createClass
 
   getInitialState: ->
@@ -33,35 +34,35 @@
         @props.handleUpdateAnswer @props.answer, data
 
   answerForm: ->
-    React.DOM.tr null,
-      React.DOM.td null,
-        React.DOM.input
-          className: 'form-control'
-          type: 'text'
-          defaultValue: @props.answer.label
-          ref: 'label'
-      React.DOM.td null,
-        React.DOM.a
-          className: 'btn btn-default'
-          onClick: @handleEdit
-          'Update'
-        React.DOM.a
-          className: 'btn btn-danger'
-          onClick: @handleToggle
-          'Cancel'
-
+    <tr>
+      <td>
+        <input
+          className='form-control'
+          type='text'
+          defaultValue=@props.answer.label
+          ref='label' />
+      </td>
+      <td>
+        <a className='btn btn-default' onClick={@handleEdit}>
+          Update
+        </a>
+        <a className='btn btn-danger' onClick={@handleToggle}>
+          Cancel
+        </a>
+      </td>
+    </tr>
   answerRow: ->
-    React.DOM.tr null,
-      React.DOM.td null, @props.answer.label
-      React.DOM.td null,
-        React.DOM.a
-          className: 'btn btn-default'
-          onClick: @handleToggle
-          'Edit'
-        React.DOM.a
-          className: 'btn btn-danger'
-          onClick: @handleDelete
-          'Delete'
+    <tr>
+      <td>{@props.answer.label}</td>
+      <td>
+        <a className='btn btn-default' onClick=@handleToggle>
+          Edit
+        </a>
+        <a className='btn btn-danger' onClick=@handleDelete>
+          Delete
+        </a>
+      </td>
+    </tr>
 
   render: ->
     if @state.edit
