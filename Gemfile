@@ -27,6 +27,7 @@ gem "therubyracer"
 gem "less-rails"
 
 gem 'react-rails'
+gem 'react-bootstrap-rails'
 gem 'sprockets-coffee-react'
 
 # Use ActiveModel has_secure_password
